@@ -1,7 +1,10 @@
+package AppiumUtil;
+
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.options.XCUITestOptions;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
+import org.PageObjects.Homepage;
 import org.openqa.selenium.remote.http.HttpClient;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -13,6 +16,7 @@ import java.time.Duration;
 public class AppiumConfiguration {
     public IOSDriver driver;
     public AppiumDriverLocalService builder;
+    public Homepage homepage;
 
 
     @BeforeClass
@@ -32,17 +36,18 @@ public class AppiumConfiguration {
 
         driver = new IOSDriver(new URL("http://127.0.0.1:4723"),options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        homepage = new Homepage(driver);
 
     }
 //TO DO - fix this failure due to imcompatibility
-    @AfterClass
-    public void tearDown(){
-        System.out.println(1);
-        driver.quit();
-        System.out.println(2);
-        builder.stop();
-        System.out.println(3);
-    }
+//    @AfterClass
+//    public void tearDown(){
+//        System.out.println(1);
+//        driver.quit();
+//        System.out.println(2);
+//        builder.stop();
+//        System.out.println(3);
+//    }
 
 
 }

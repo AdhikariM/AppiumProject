@@ -1,3 +1,5 @@
+package AppiumUtil;
+
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.JavascriptExecutor;
@@ -6,16 +8,16 @@ import org.openqa.selenium.remote.RemoteWebElement;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SharedUtilities extends AppiumConfiguration{
+public class SharedUtilities{
 
-        protected IOSDriver driver;
+         IOSDriver driver;
 
         public SharedUtilities(IOSDriver driver)
         {
             this.driver = driver;
         }
 
-        public void longPressAction(WebElement element)
+    public void longPressAction(WebElement element)
         {
             Map<String,Object> params = new HashMap<>();
             params.put("element", ((RemoteWebElement)element).getId());
@@ -23,7 +25,7 @@ public class SharedUtilities extends AppiumConfiguration{
             driver.executeScript("mobile:touchAndHold", params);
         }
 
-        public void scrollToEndAction()
+        public void scrollToEndAction(WebElement element)
         {
             boolean canScrollMore;
             do
@@ -47,10 +49,10 @@ public class SharedUtilities extends AppiumConfiguration{
 
         public void swipeAction(WebElement element ,String direction)
         {
-            Map<String,Object> params1 = new HashMap<String,Object> ();
-            params1.put("direction","left");
-            //params1.put("element", ((RemoteWebElement)ele).getId());
-            driver.executeScript("mobile:swipe", params1);
+            Map<String,Object> params = new HashMap<String,Object> ();
+            params.put("direction","left");
+            params.put("element", ((RemoteWebElement)element).getId());
+            driver.executeScript("mobile:swipe", params);
         }
 
         public void clickOnField(WebElement element){
