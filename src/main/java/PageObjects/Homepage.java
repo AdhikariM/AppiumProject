@@ -3,6 +3,7 @@ import AppiumUtil.SharedUtilities;
 import PageObjects.AlertViews;
 import PageObjects.SliderView;
 import PageObjects.StackViews;
+import PageObjects.Switches;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
@@ -105,6 +106,10 @@ public class Homepage extends SharedUtilities {
     public StackViews clickStackViews(){
         stackViews.click();
         return new StackViews(driver);
+    }
+    public Switches clickSwitches(){
+        switches.click();
+        return new Switches(driver);
     }
 
 

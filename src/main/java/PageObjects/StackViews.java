@@ -4,6 +4,7 @@ import AppiumUtil.SharedUtilities;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.PageObjects.Homepage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -35,6 +36,9 @@ public class StackViews extends SharedUtilities {
     private WebElement minusBtn;
     @iOSXCUITFindBy(iOSNsPredicate = "label == 'Further Detail'")
     private WebElement furtherLabel;
+    @iOSXCUITFindBy(iOSNsPredicate = "label == 'UIKitCatalog' AND name == 'UIKitCatalog' AND type == 'XCUIElementTypeButton'")
+    private WebElement previousBtn;
+
 //    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTextField")
 //    private WebElement textBox1;
 //    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeTextField")
@@ -47,6 +51,8 @@ public class StackViews extends SharedUtilities {
         Assert.assertEquals(detailLabel.getText(), "Detail");
         Assert.assertEquals(footerLabel.getText(), "Footer Label");
         Assert.assertEquals(addRemoveLabel.getText(), "Add/remove views");
+        previousBtn.click();
+
     }
 
 

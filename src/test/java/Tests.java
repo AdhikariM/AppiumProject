@@ -1,10 +1,11 @@
 import AppiumUtil.AppiumConfiguration;
 import PageObjects.AlertViews;
 import PageObjects.StackViews;
+import PageObjects.Switches;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
-public class VerifyHomePage extends AppiumConfiguration {
+public class Tests extends AppiumConfiguration {
 
     @Test
     public void clickAlertView(){
@@ -23,6 +24,13 @@ public class VerifyHomePage extends AppiumConfiguration {
         StackViews stackViews = homepage.clickStackViews();
         stackViews.verifyStackViews();
 
+    }
+
+    @Test
+    public void clickSwitchesView(){
+        Switches switches = homepage.clickSwitches();
+        switches.verifyPage();
+        switches.toggleSwitch();
     }
 
 
