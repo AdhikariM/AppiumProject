@@ -17,45 +17,65 @@ public class AlertViews extends SharedUtilities {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @iOSXCUITFindBy(id = "Alert Views")
+    @iOSXCUITFindBy(iOSNsPredicate = "label == 'Alert Views'")
     private WebElement pageTitle;
-    @iOSXCUITFindBy(id = " ALERT STYLE")
-    private WebElement menuTitle;
-    @iOSXCUITFindBy(id = "Simple")
+    @iOSXCUITFindBy(iOSNsPredicate = "label == 'ALERT STYLE'")
+    private WebElement listTitle;
+    @iOSXCUITFindBy(iOSNsPredicate = "label == 'Simple'")
     private WebElement simpleBtn;
-    @iOSXCUITFindBy(id = " Okay / Cancel")
-    private WebElement oCBtn;
-    @iOSXCUITFindBy(id = "Other")
+    @iOSXCUITFindBy(iOSNsPredicate = "label == 'Okay / Cancel'")
+    private WebElement okayCancelBtn;
+    @iOSXCUITFindBy(iOSNsPredicate = "label == 'Other'")
     private WebElement otherBtn;
-    @iOSXCUITFindBy(xpath = "//*[@value='Text Entry']")
-    private WebElement textBtn;
-    @iOSXCUITFindBy(id = "Secure Text Entry")
+    @iOSXCUITFindBy(iOSClassChain="**/XCUIElementTypeStaticText[`label =='Text Entry'`]")
+    private WebElement textEntryBtn;
+    @iOSXCUITFindBy(iOSNsPredicate = "label == 'Secure Text Entry'")
     private WebElement secureBtn;
-    @iOSXCUITFindBy (id = " Confirm / Cancel")
-    private  WebElement confirmCancelBtn;
-    @iOSXCUITFindBy(id = "Destructive")
+    @iOSXCUITFindBy(iOSNsPredicate="type == 'XCUIElementTypeStaticText' AND value BEGINSWITH[c] 'Confirm'")
+    private WebElement confirmCancelBtn;
+    @iOSXCUITFindBy(iOSNsPredicate = "label == 'Destructive'")
     private WebElement destructiveBtn;
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCell")
-    private WebElement textbox;
-    @iOSXCUITFindBy(id = "OK")
+    private WebElement textBox;
+    @iOSXCUITFindBy(accessibility = "OK")
     private WebElement okBtn;
+    @iOSXCUITFindBy(iOSNsPredicate = "name BEGINSWITH[c] 'A message'")
+    private WebElement confirmText;
+    @iOSXCUITFindBy(iOSNsPredicate = "label == 'Confirm'")
+    private WebElement cancelBtn;
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label == 'UIKitCatalog'`]")
+    private WebElement previousBtn;
+    @iOSXCUITFindBy(iOSNsPredicate = "label == 'ACTION SHEET STYLE'")
+    private WebElement actionSheetLabel;
 
     public void verifyPage(){
+        Assert.assertEquals(previousBtn.getText(),"UIKitCatalog" );
         Assert.assertEquals(pageTitle.getText(), "Alert Views");
-
+        Assert.assertEquals(listTitle.getText(), "ALERT STYLE");
+        Assert.assertEquals(simpleBtn.getText(), "Simple");
+        Assert.assertEquals(okayCancelBtn.getText(), "Okay / Cancel");
+        Assert.assertEquals(otherBtn.getText(), "Other");
+        Assert.assertEquals(textEntryBtn.getText(), "Text Entry");
+        Assert.assertEquals(secureBtn.getText(), "Secure Text Entry");
+        Assert.assertEquals(actionSheetLabel.getText(), "ACTION SHEET STYLE");
+        Assert.assertEquals(confirmCancelBtn.getText(), "Confirm / Cancel");
+        Assert.assertEquals(destructiveBtn.getText(), "Destructive");
     }
 
     public void fillTextBox(String text){
-        textBtn.click();
-        textbox.sendKeys(text);
+        textEntryBtn.click();
+        textBox.sendKeys(text);
         okBtn.click();
-
     }
 
-    public void getConfirmMessage(){
-
+    public String getConfirmMessage(){
+        confirmCancelBtn.click();
+        return confirmText.getText();
     }
-
+    public void navigateToHome(){
+        cancelBtn.click();
+        previousBtn.click();
+    }
 
 
 }

@@ -1,6 +1,8 @@
 package org.PageObjects;
 import AppiumUtil.SharedUtilities;
 import PageObjects.AlertViews;
+import PageObjects.SliderView;
+import PageObjects.StackViews;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
@@ -96,6 +98,16 @@ public class Homepage extends SharedUtilities {
         alertViews.click();
         return new AlertViews(driver);
     }
+    public SliderView clickSliderView(){
+        sliders.click();
+        return new SliderView(driver);
+    }
+    public StackViews clickStackViews(){
+        stackViews.click();
+        return new StackViews(driver);
+    }
+
+
 
 
 }

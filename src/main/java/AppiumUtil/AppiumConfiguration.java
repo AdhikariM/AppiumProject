@@ -20,34 +20,42 @@ public class AppiumConfiguration {
 
 
     @BeforeClass
-    public void initializeAppium() throws MalformedURLException {
-        AppiumDriverLocalService builder = new AppiumServiceBuilder()
-                .withAppiumJS(new File("//usr//local//lib//node_modules//appium//build//lib//main.js"))
-                .usingDriverExecutable(new File("/usr/local/bin/node"))
-                .withIPAddress("127.0.0.1").usingPort(4723).build();
+    public void initializeAppium() {
+        try {
+            AppiumDriverLocalService builder = new AppiumServiceBuilder()
+                    .withAppiumJS(new File("//usr//local//lib//node_modules//appium//build//lib//main.js"))
+                    .usingDriverExecutable(new File("/usr/local/bin/node"))
+                    .withIPAddress("127.0.0.1").usingPort(4723).build();
 
-        builder.start();
+            builder.start();
 
-        XCUITestOptions options = new XCUITestOptions();
-        options.setDeviceName("iPhone 14 Pro");
-        options.setApp("/Users/aj/Documents/AutomationPortfolio/resources/UIKitCatalog.app");
-        options.setPlatformVersion("16.4");
-        options.setWdaLaunchTimeout(Duration.ofSeconds(20));
+            XCUITestOptions options = new XCUITestOptions();
+            options.setDeviceName("iPhone 14 Pro");
+            options.setApp("/Users/aj/Documents/AutomationPortfolio/resources/UIKitCatalog.app");
+            options.setPlatformVersion("16.4");
+            options.setWdaLaunchTimeout(Duration.ofSeconds(20));
 
-        driver = new IOSDriver(new URL("http://127.0.0.1:4723"),options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        homepage = new Homepage(driver);
+            driver = new IOSDriver(new URL("http://127.0.0.1:4723"), options);
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+            homepage = new Homepage(driver);
 
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
     }
-//TO DO - fix this failure due to imcompatibility
+
+    //TO DO - fix this failure due to imcompatibility
 //    @AfterClass
 //    public void tearDown(){
-//        System.out.println(1);
-//        driver.quit();
-//        System.out.println(2);
-//        builder.stop();
-//        System.out.println(3);
+//       try {
+//           System.out.println(1);
+//
+//           driver.quit();
+//           System.out.println(2);
+//           builder.stop();
+//           System.out.println(3);
+//       } catch (Exception e) {
+//           throw new RuntimeException(e);
+//       }
 //    }
-
-
 }
