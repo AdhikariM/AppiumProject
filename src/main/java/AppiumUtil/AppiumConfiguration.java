@@ -44,18 +44,17 @@ public class AppiumConfiguration {
         }
     }
 
-    //TO DO - fix this failure due to imcompatibility
-//    @AfterClass
-//    public void tearDown(){
-//       try {
-//           System.out.println(1);
-//
-//           driver.quit();
-//           System.out.println(2);
-//           builder.stop();
-//           System.out.println(3);
-//       } catch (Exception e) {
-//           throw new RuntimeException(e);
-//       }
-//    }
+    @AfterClass
+    public void tearDown(){
+        try {
+            driver.quit();
+            if (builder != null) {
+                builder.stop();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("Error occurred during teardown: " + e.getMessage());
+        }
+    }
+
 }
