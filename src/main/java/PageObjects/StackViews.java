@@ -51,7 +51,7 @@ public class StackViews extends SharedUtilities {
         Assert.assertEquals(detailLabel.getText(), "Detail");
         Assert.assertEquals(footerLabel.getText(), "Footer Label");
         Assert.assertEquals(addRemoveLabel.getText(), "Add/remove views");
-        previousBtn.click();
+        clickOnField(previousBtn);
 
     }
 

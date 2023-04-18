@@ -1,14 +1,12 @@
 package org.PageObjects;
 import AppiumUtil.SharedUtilities;
-import PageObjects.AlertViews;
-import PageObjects.SliderView;
-import PageObjects.StackViews;
-import PageObjects.Switches;
+import PageObjects.*;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 
 public class Homepage extends SharedUtilities {
@@ -111,7 +109,15 @@ public class Homepage extends SharedUtilities {
         switches.click();
         return new Switches(driver);
     }
+    public PickerView colorMixer(){
+        clickOnField(pickerView);
+        return new PickerView(driver);
+    }
 
+    public void verifyHomePage(){
+        Assert.assertEquals(pageTitle.getText(), "UIKitCatalog");
+        Assert.assertEquals(activityI.getText(), "Activity Indicators");
+    }
 
 
 

@@ -59,4 +59,9 @@ public class SharedUtilities{
             element.click();
         }
 
+        public void sendKeys(WebElement element, String text) {
+            element.clear();
+            element.sendKeys(text);
+        }
+
 }

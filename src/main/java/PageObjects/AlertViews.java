@@ -63,18 +63,18 @@ public class AlertViews extends SharedUtilities {
     }
 
     public void fillTextBox(String text){
-        textEntryBtn.click();
+        clickOnField(textEntryBtn);
         textBox.sendKeys(text);
-        okBtn.click();
+        clickOnField(okBtn);
     }
 
     public String getConfirmMessage(){
-        confirmCancelBtn.click();
+        clickOnField(confirmCancelBtn);
         return confirmText.getText();
     }
     public void navigateToHome(){
-        cancelBtn.click();
-        previousBtn.click();
+        clickOnField(cancelBtn);
+        clickOnField(previousBtn);
     }
 
 

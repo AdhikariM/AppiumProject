@@ -38,9 +38,9 @@ public class Switches extends SharedUtilities {
     }
 
     public void toggleSwitch(){
-        switchOne.click();
-        switchTwo.click();
-        previousBtn.click();
+        clickOnField(switchOne);
+        clickOnField(switchTwo);
+        clickOnField(previousBtn);
         org.PageObjects.Homepage homepage = new org.PageObjects.Homepage(driver);
         homepage.clickSwitches();
     }
