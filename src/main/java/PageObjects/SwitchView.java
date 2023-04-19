@@ -7,17 +7,19 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
-public class Switches extends SharedUtilities {
+public class SwitchView extends SharedUtilities {
 
     IOSDriver driver;
-    public Switches(IOSDriver driver) {
+    SoftAssert softAssert;
+    public SwitchView(IOSDriver driver) {
         super(driver);
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @iOSXCUITFindBy(iOSNsPredicate = "label == 'Switches'")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label == 'Switches'`]")
     private WebElement switchPageTitle;
     @iOSXCUITFindBy(iOSNsPredicate = "label == 'DEFAULT'")
     private WebElement listLabel;
@@ -34,12 +36,15 @@ public class Switches extends SharedUtilities {
         Assert.assertEquals(switchPageTitle.getText(), "Switches");
         Assert.assertEquals(listLabel.getText(), "DEFAULT");
         Assert.assertEquals(listLabel2.getText(), "TINTED");
-
+        Assert.assertEquals(switchOne.getAttribute("value"), 1);
+        Assert.assertEquals(switchTwo.getAttribute("value"), 1);
     }
 
     public void toggleSwitch(){
         clickOnField(switchOne);
+        Assert.assertEquals(switchOne.getAttribute("value"), 0);
         clickOnField(switchTwo);
+        Assert.assertEquals(switchTwo.getAttribute("value"), 0);
         clickOnField(previousBtn);
         org.PageObjects.Homepage homepage = new org.PageObjects.Homepage(driver);
         homepage.clickSwitches();

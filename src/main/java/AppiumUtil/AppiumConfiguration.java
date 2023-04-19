@@ -1,13 +1,12 @@
 package AppiumUtil;
-
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.options.XCUITestOptions;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import org.PageObjects.Homepage;
-import org.openqa.selenium.remote.http.HttpClient;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;

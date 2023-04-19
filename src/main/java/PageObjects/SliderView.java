@@ -17,9 +17,11 @@ public class SliderView extends SharedUtilities {
     }
 
     @iOSXCUITFindBy(xpath = "//*[@text='UIKitCatalog' and @top='true']")
-    private WebElement slider;
+    private WebElement pageTitle;
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name='UIKitCatalog']/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeSlider")
+    private WebElement sliderOne;
 
     public void setSlider(){
-        slider.sendKeys("1");
+
     }
 }

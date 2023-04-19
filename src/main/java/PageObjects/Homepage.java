@@ -4,14 +4,17 @@ import PageObjects.*;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 
 public class Homepage extends SharedUtilities {
 
     IOSDriver driver;
+    SoftAssert softAssert;
     public Homepage(IOSDriver driver){
         super(driver);
         this.driver = driver;
@@ -72,7 +75,7 @@ public class Homepage extends SharedUtilities {
     private WebElement steppers;
     @iOSXCUITFindBy(accessibility = "StepperViewController")
     private WebElement stepperVC;
-    @iOSXCUITFindBy(accessibility = "Switches")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[14]/XCUIElementTypeOther[1]/XCUIElementTypeOther")
     private WebElement switches;
     @iOSXCUITFindBy(accessibility = "SwitchViewController")
     private WebElement switchVC;
@@ -105,9 +108,9 @@ public class Homepage extends SharedUtilities {
         stackViews.click();
         return new StackViews(driver);
     }
-    public Switches clickSwitches(){
+    public SwitchView clickSwitches(){
         switches.click();
-        return new Switches(driver);
+        return new SwitchView(driver);
     }
     public PickerView colorMixer(){
         clickOnField(pickerView);
@@ -115,8 +118,27 @@ public class Homepage extends SharedUtilities {
     }
 
     public void verifyHomePage(){
-        Assert.assertEquals(pageTitle.getText(), "UIKitCatalog");
-        Assert.assertEquals(activityI.getText(), "Activity Indicators");
+        
+        softAssert.assertEquals(pageTitle.getText(), "UIKitCatalog");
+        softAssert.assertEquals(activityI.getText(), "Activity Indicators");
+        softAssert.assertEquals(activityIVC.getText(), "ActivityIndicatorViewController");
+        softAssert.assertEquals(alertViews.getText(), "Alert Views");
+        softAssert.assertEquals(alertCVC.getText(), "AlertControllerViewController");
+        softAssert.assertEquals(buttons.getText(), "Buttons");
+        softAssert.assertEquals(buttonVC.getText(), "ButtonViewController");
+        softAssert.assertEquals(datePicker.getText(), "Date Picker");
+        softAssert.assertEquals(datePC.getText(), "DatePickerController");
+        softAssert.assertEquals(imageView.getText(), "Image View");
+        softAssert.assertEquals(imageVC.getText(), "ImageViewController");
+        softAssert.assertEquals(pageControl.getText(), "Page Control");
+        softAssert.assertEquals(pageCVC.getText(), "PageControlViewController");
+        softAssert.assertEquals(pickerView.getText(), "Picker View");
+        softAssert.assertEquals(pickerVC.getText(), "PickerViewController");
+        softAssert.assertEquals(progressViews.getText(), "Progress Vi");
+        softAssert.assertAll();
+        
+        
+
     }
 
 
