@@ -136,8 +136,7 @@ public class Homepage extends SharedUtilities {
         softAssert.assertEquals(pickerVC.getText(), "PickerViewController");
         softAssert.assertEquals(progressViews.getText(), "Progress Vi");
         softAssert.assertAll();
-        
-        
+
 
     }
 

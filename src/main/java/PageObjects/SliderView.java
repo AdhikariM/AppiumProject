@@ -22,6 +22,6 @@ public class SliderView extends SharedUtilities {
     private WebElement sliderOne;
 
     public void setSlider(){
-
+    sliderOne.sendKeys("0.5");
     }
 }

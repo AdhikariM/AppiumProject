@@ -39,6 +39,9 @@ public class PickerView extends SharedUtilities {
         softAssert.assertEquals(greenColorComponent.getAttribute("value"), 205);
         softAssert.assertEquals(blueColorComponent.getAttribute("value"), 120);
     }
+    public void navigateBack(){
+        clickOnField(backButton);
+    }
 
 
 }

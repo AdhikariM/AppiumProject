@@ -3,10 +3,12 @@ package AppiumUtil;
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
-import org.testng.asserts.SoftAssert;
-
+import org.apache.commons.io.FileUtils;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,19 +27,6 @@ public class SharedUtilities{
             params.put("element", ((RemoteWebElement)element).getId());
             params.put("duration", 5);
             driver.executeScript("mobile:touchAndHold", params);
-        }
-
-        public void scrollToEndAction(WebElement element)
-        {
-            boolean canScrollMore;
-            do
-            {
-                canScrollMore = (Boolean) ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of(
-                        "left", 100, "top", 100, "width", 200, "height", 200,
-                        "direction", "down",
-                        "percent", 3.0
-                ));
-            }while(canScrollMore);
         }
 
         public void scrollToWebElement(WebElement element)
@@ -64,6 +53,13 @@ public class SharedUtilities{
         public void sendKeys(WebElement element, String text) {
             element.clear();
             element.sendKeys(text);
+        }
+
+        public String captureScreenShot(String testCaseName, IOSDriver driver) throws IOException {
+            File source = driver.getScreenshotAs(OutputType.FILE);
+            String destinationFile = System.getProperty("user.dir") + "//reports" + testCaseName+".png";
+            FileUtils.copyFile(source, new File(destinationFile));
+            return destinationFile;
         }
 
 }

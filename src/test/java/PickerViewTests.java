@@ -10,7 +10,7 @@ public class PickerViewTests extends AppiumConfiguration {
             PickerView pickerView = homepage.colorMixer();
             pickerView.assertColorKeys();
             pickerView.colorMixer();
-
+            pickerView.navigateBack();
         } catch (Exception e) {
             e.printStackTrace();
         }

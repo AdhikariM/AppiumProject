@@ -48,6 +48,7 @@ public class SwitchView extends SharedUtilities {
         clickOnField(previousBtn);
         org.PageObjects.Homepage homepage = new org.PageObjects.Homepage(driver);
         homepage.clickSwitches();
+        clickOnField(previousBtn);
     }
 
 }

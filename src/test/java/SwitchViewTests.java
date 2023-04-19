@@ -9,5 +9,6 @@ public class SwitchViewTests extends AppiumConfiguration {
         SwitchView switchView = homepage.clickSwitches();
         switchView.verifyPage();
         switchView.toggleSwitch();
+
     }
 }
