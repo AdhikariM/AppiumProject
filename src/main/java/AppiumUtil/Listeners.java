@@ -1,4 +1,5 @@
 package AppiumUtil;
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -7,25 +8,41 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-public class Listeners implements ITestListener {
+import java.io.IOException;
 
-    ExtentReports extentReports  = ExtentReport.extentReport();
+public class Listeners extends SharedUtilities implements ITestListener {
+
+    ExtentReports extentReports = ExtentReport.extentReport();
     ExtentTest test;
     IOSDriver driver;
 
+    public Listeners() {
+        super(null);
+    }
+
+//    public Listeners(IOSDriver driver) {
+//        super(driver);
+//    }
+
+
     @Override
     public void onTestStart(ITestResult result) {
-    test = extentReports.createTest(result.getMethod().getMethodName());
+        test = extentReports.createTest(result.getMethod().getMethodName());
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
-    test.log(Status.PASS, "Test passed");
+        test.log(Status.PASS, "Test passed");
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
         test.fail(result.getThrowable());
+        try {
+            test.addScreenCaptureFromPath(getScreenshotPath(result.getMethod().getMethodName(), driver), result.getMethod().getMethodName());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -45,6 +62,6 @@ public class Listeners implements ITestListener {
 
     @Override
     public void onFinish(ITestContext context) {
-    extentReports.flush();
+        extentReports.flush();
     }
 }
