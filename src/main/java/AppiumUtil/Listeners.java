@@ -3,6 +3,7 @@ package AppiumUtil;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.ios.IOSDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
@@ -20,10 +21,6 @@ public class Listeners extends SharedUtilities implements ITestListener {
         super(null);
     }
 
-//    public Listeners(IOSDriver driver) {
-//        super(driver);
-//    }
-
 
     @Override
     public void onTestStart(ITestResult result) {
@@ -39,6 +36,11 @@ public class Listeners extends SharedUtilities implements ITestListener {
     public void onTestFailure(ITestResult result) {
         test.fail(result.getThrowable());
         try {
+            driver = (IOSDriver) result.getTestClass().getRealClass().getField("driver").get(result.getInstance());
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+        try {
             test.addScreenCaptureFromPath(getScreenshotPath(result.getMethod().getMethodName(), driver), result.getMethod().getMethodName());
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -47,7 +49,17 @@ public class Listeners extends SharedUtilities implements ITestListener {
 
     @Override
     public void onTestSkipped(ITestResult result) {
-
+        test.skip(result.getThrowable());
+        try {
+            driver = (IOSDriver) result.getTestClass().getRealClass().getField("driver").get(result.getInstance());
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            test.addScreenCaptureFromPath(getScreenshotPath(result.getMethod().getMethodName(), driver), result.getMethod().getMethodName());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
