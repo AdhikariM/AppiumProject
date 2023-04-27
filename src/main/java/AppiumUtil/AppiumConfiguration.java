@@ -21,8 +21,7 @@ public class AppiumConfiguration {
     public AppiumDriverLocalService builder;
     public Homepage homepage;
 
-
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void initializeAppium() throws IOException {
         Properties properties = new Properties();
         FileInputStream fileInputStream = new FileInputStream(System.getProperty("user.dir") + "//src//main//java//resources//data.properties");
@@ -38,7 +37,6 @@ public class AppiumConfiguration {
                     .withAppiumJS(new File("//usr//local//lib//node_modules//appium//build//lib//main.js"))
                     .usingDriverExecutable(new File("/usr/local/bin/node"))
                     .withIPAddress(ipAddress).usingPort(Integer.parseInt(port)).build();
-
             builder.start();
 
             XCUITestOptions options = new XCUITestOptions();
@@ -50,14 +48,13 @@ public class AppiumConfiguration {
             driver = new IOSDriver(new URL("http://127.0.0.1:4723"), options);
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             homepage = new Homepage(driver);
-
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    @AfterClass
-    public void tearDown(){
+    @AfterClass(alwaysRun = true)
+    public void tearDown() {
         try {
             driver.quit();
             if (builder != null) {

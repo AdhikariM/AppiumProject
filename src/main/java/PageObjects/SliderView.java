@@ -10,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 public class SliderView extends SharedUtilities {
 
     IOSDriver driver;
+
     public SliderView(IOSDriver driver) {
         super(driver);
         this.driver = driver;
@@ -21,7 +22,7 @@ public class SliderView extends SharedUtilities {
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeApplication[@name='UIKitCatalog']/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeSlider")
     private WebElement sliderOne;
 
-    public void setSlider(){
-    sliderOne.sendKeys("0.5");
+    public void setSlider() {
+        sliderOne.sendKeys("0.5");
     }
 }

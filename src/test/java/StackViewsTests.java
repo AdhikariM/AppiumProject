@@ -4,8 +4,8 @@ import PageObjects.StackViews;
 
 public class StackViewsTests extends AppiumConfiguration {
 
-    @Test
-    public void clickStackView(){
+    @Test(groups = {"Smoke"})
+    public void clickStackView() {
         try {
             StackViews stackViews = homepage.clickStackViews();
             stackViews.verifyStackViews();

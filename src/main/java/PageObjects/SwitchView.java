@@ -13,6 +13,7 @@ public class SwitchView extends SharedUtilities {
 
     IOSDriver driver;
     SoftAssert softAssert;
+
     public SwitchView(IOSDriver driver) {
         super(driver);
         this.driver = driver;
@@ -32,7 +33,7 @@ public class SwitchView extends SharedUtilities {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeSwitch[2]")
     private WebElement switchTwo;
 
-    public void verifyPage(){
+    public void verifyPage() {
         Assert.assertEquals(switchPageTitle.getText(), "Switches");
         Assert.assertEquals(listLabel.getText(), "DEFAULT");
         Assert.assertEquals(listLabel2.getText(), "TINTED");
@@ -40,7 +41,7 @@ public class SwitchView extends SharedUtilities {
         Assert.assertEquals(switchTwo.getAttribute("value"), 1);
     }
 
-    public void toggleSwitch(){
+    public void toggleSwitch() {
         clickOnField(switchOne);
         Assert.assertEquals(switchOne.getAttribute("value"), 0);
         clickOnField(switchTwo);

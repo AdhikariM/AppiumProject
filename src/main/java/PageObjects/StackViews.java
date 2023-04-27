@@ -12,7 +12,8 @@ import org.testng.Assert;
 public class StackViews extends SharedUtilities {
 
     IOSDriver driver;
-    public StackViews(IOSDriver driver){
+
+    public StackViews(IOSDriver driver) {
         super(driver);
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -30,7 +31,7 @@ public class StackViews extends SharedUtilities {
     private WebElement footerLabel;
     @iOSXCUITFindBy(iOSNsPredicate = "label == 'Add/remove views'")
     private WebElement addRemoveLabel;
-    @iOSXCUITFindBy (iOSClassChain = "**/XCUIElementTypeButton[`label == 'stepper increment'`][2]")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label == 'stepper increment'`][2]")
     private WebElement plusBtn2;
     @iOSXCUITFindBy(iOSNsPredicate = "label == 'stepper decrement'")
     private WebElement minusBtn;
@@ -45,7 +46,7 @@ public class StackViews extends SharedUtilities {
 //    private WebElement textBox2;
     // resolve these identifiers
 
-    public void verifyStackViews(){
+    public void verifyStackViews() {
         Assert.assertEquals(stackViewsPageTitle.getText(), "Stack Views");
         Assert.assertEquals(sectionHeader.getText(), "Showing/hiding views");
         Assert.assertEquals(detailLabel.getText(), "Detail");

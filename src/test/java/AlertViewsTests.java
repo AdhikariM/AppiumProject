@@ -10,7 +10,7 @@ import PageObjects.AlertViews;
 public class AlertViewsTests extends AppiumConfiguration {
 
     @Test
-    public void clickAlertView(){
+    public void clickAlertView() {
         try {
             AlertViews alertViews = homepage.clickAlertViews();
             alertViews.verifyPage();

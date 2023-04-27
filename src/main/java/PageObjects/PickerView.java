@@ -13,6 +13,7 @@ public class PickerView extends SharedUtilities {
 
     IOSDriver driver;
     SoftAssert softAssert;
+
     public PickerView(IOSDriver driver) {
         super(driver);
         this.driver = driver;
@@ -28,18 +29,19 @@ public class PickerView extends SharedUtilities {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label == 'UIKitCatalog'`]")
     private WebElement backButton;
 
-    public void colorMixer(){
+    public void colorMixer() {
         sendKeys(redColorComponent, "250");
         sendKeys(greenColorComponent, "65");
         sendKeys(blueColorComponent, "75");
     }
 
-    public void assertColorKeys(){
+    public void assertColorKeys() {
         softAssert.assertEquals(redColorComponent.getAttribute("value"), 65);
         softAssert.assertEquals(greenColorComponent.getAttribute("value"), 205);
         softAssert.assertEquals(blueColorComponent.getAttribute("value"), 120);
     }
-    public void navigateBack(){
+
+    public void navigateBack() {
         clickOnField(backButton);
     }
 

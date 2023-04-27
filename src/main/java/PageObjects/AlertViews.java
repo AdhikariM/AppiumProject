@@ -11,7 +11,8 @@ import org.testng.Assert;
 public class AlertViews extends SharedUtilities {
 
     IOSDriver driver;
-    public AlertViews(IOSDriver driver){
+
+    public AlertViews(IOSDriver driver) {
         super(driver);
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -27,11 +28,11 @@ public class AlertViews extends SharedUtilities {
     private WebElement okayCancelBtn;
     @iOSXCUITFindBy(iOSNsPredicate = "label == 'Other'")
     private WebElement otherBtn;
-    @iOSXCUITFindBy(iOSClassChain="**/XCUIElementTypeStaticText[`label =='Text Entry'`]")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label =='Text Entry'`]")
     private WebElement textEntryBtn;
     @iOSXCUITFindBy(iOSNsPredicate = "label == 'Secure Text Entry'")
     private WebElement secureBtn;
-    @iOSXCUITFindBy(iOSNsPredicate="type == 'XCUIElementTypeStaticText' AND value BEGINSWITH[c] 'Confirm'")
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeStaticText' AND value BEGINSWITH[c] 'Confirm'")
     private WebElement confirmCancelBtn;
     @iOSXCUITFindBy(iOSNsPredicate = "label == 'Destructive'")
     private WebElement destructiveBtn;
@@ -48,8 +49,8 @@ public class AlertViews extends SharedUtilities {
     @iOSXCUITFindBy(iOSNsPredicate = "label == 'ACTION SHEET STYLE'")
     private WebElement actionSheetLabel;
 
-    public void verifyPage(){
-        Assert.assertEquals(previousBtn.getText(),"UIKitCatalog" );
+    public void verifyPage() {
+        Assert.assertEquals(previousBtn.getText(), "UIKitCatalog");
         Assert.assertEquals(pageTitle.getText(), "Alert Views");
         Assert.assertEquals(listTitle.getText(), "ALERT STYLE");
         Assert.assertEquals(simpleBtn.getText(), "Simple");
@@ -62,17 +63,18 @@ public class AlertViews extends SharedUtilities {
         Assert.assertEquals(destructiveBtn.getText(), "Destructive");
     }
 
-    public void fillTextBox(String text){
+    public void fillTextBox(String text) {
         clickOnField(textEntryBtn);
         textBox.sendKeys(text);
         clickOnField(okBtn);
     }
 
-    public String getConfirmMessage(){
+    public String getConfirmMessage() {
         clickOnField(confirmCancelBtn);
         return confirmText.getText();
     }
-    public void navigateToHome(){
+
+    public void navigateToHome() {
         clickOnField(cancelBtn);
         clickOnField(previousBtn);
     }

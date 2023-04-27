@@ -1,4 +1,5 @@
 package org.PageObjects;
+
 import AppiumUtil.SharedUtilities;
 import PageObjects.*;
 import io.appium.java_client.ios.IOSDriver;
@@ -15,7 +16,8 @@ public class Homepage extends SharedUtilities {
 
     IOSDriver driver;
     SoftAssert softAssert;
-    public Homepage(IOSDriver driver){
+
+    public Homepage(IOSDriver driver) {
         super(driver);
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -27,9 +29,9 @@ public class Homepage extends SharedUtilities {
     private WebElement activityI;
     @iOSXCUITFindBy(accessibility = "ActivityIndicatorViewController")
     private WebElement activityIVC;
-    @iOSXCUITFindBy (accessibility ="Alert Views")
+    @iOSXCUITFindBy(accessibility = "Alert Views")
     private WebElement alertViews;
-    @iOSXCUITFindBy(accessibility ="AlertControllerViewController")
+    @iOSXCUITFindBy(accessibility = "AlertControllerViewController")
     private WebElement alertCVC;
     @iOSXCUITFindBy(accessibility = "Buttons")
     private WebElement buttons;
@@ -41,9 +43,9 @@ public class Homepage extends SharedUtilities {
     private WebElement datePC;
     @iOSXCUITFindBy(accessibility = "Image View")
     private WebElement imageView;
-    @iOSXCUITFindBy(accessibility="ImageViewController")
+    @iOSXCUITFindBy(accessibility = "ImageViewController")
     private WebElement imageVC;
-    @iOSXCUITFindBy(accessibility ="Page Control")
+    @iOSXCUITFindBy(accessibility = "Page Control")
     private WebElement pageControl;
     @iOSXCUITFindBy(accessibility = "PageControlViewController")
     private WebElement pageCVC;
@@ -96,29 +98,33 @@ public class Homepage extends SharedUtilities {
     @iOSXCUITFindBy(accessibility = "WebViewController")
     private WebElement webVC;
 
-    public AlertViews clickAlertViews(){
+    public AlertViews clickAlertViews() {
         alertViews.click();
         return new AlertViews(driver);
     }
-    public SliderView clickSliderView(){
+
+    public SliderView clickSliderView() {
         sliders.click();
         return new SliderView(driver);
     }
-    public StackViews clickStackViews(){
+
+    public StackViews clickStackViews() {
         stackViews.click();
         return new StackViews(driver);
     }
-    public SwitchView clickSwitches(){
+
+    public SwitchView clickSwitches() {
         switches.click();
         return new SwitchView(driver);
     }
-    public PickerView colorMixer(){
+
+    public PickerView colorMixer() {
         clickOnField(pickerView);
         return new PickerView(driver);
     }
 
-    public void verifyHomePage(){
-        
+    public void verifyHomePage() {
+
         softAssert.assertEquals(pageTitle.getText(), "UIKitCatalog");
         softAssert.assertEquals(activityI.getText(), "Activity Indicators");
         softAssert.assertEquals(activityIVC.getText(), "ActivityIndicatorViewController");
@@ -139,7 +145,6 @@ public class Homepage extends SharedUtilities {
 
 
     }
-
 
 
 }
