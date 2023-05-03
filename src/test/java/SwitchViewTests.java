@@ -9,7 +9,8 @@ public class SwitchViewTests extends AppiumConfiguration {
     //bug in app [java.lang.AssertionError: expected [0] but found [0]]
     public void clickSwitchesView() {
         SwitchView switchView = homepage.clickSwitches();
-        switchView.toggleSwitch();
         switchView.verifyPage();
+        switchView.toggleSwitch();
+
     }
 }

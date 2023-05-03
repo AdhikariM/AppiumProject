@@ -45,6 +45,7 @@ public class Listeners extends SharedUtilities implements ITestListener {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
     }
 
     @Override
