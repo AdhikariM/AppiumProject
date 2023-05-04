@@ -28,7 +28,7 @@ public class SwitchView extends SharedUtilities {
     private WebElement listLabel2;
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeSwitch[1]")
     private WebElement switchOne;
-    @iOSXCUITFindBy(iOSNsPredicate = "label == 'UIKitCatalog' AND name == 'UIKitCatalog' AND type == 'XCUIElementTypeButton'")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton")
     private WebElement previousBtn;
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeSwitch[2]")
     private WebElement switchTwo;
@@ -47,9 +47,9 @@ public class SwitchView extends SharedUtilities {
         clickOnField(switchTwo);
         Assert.assertEquals(switchTwo.getAttribute("value"), 0);
         clickOnField(previousBtn);
-        org.PageObjects.Homepage homepage = new org.PageObjects.Homepage(driver);
-        homepage.clickSwitches();
-        clickOnField(previousBtn);
+//        org.PageObjects.Homepage homepage = new org.PageObjects.Homepage(driver);
+//        homepage.clickSwitches();
+//        clickOnField(previousBtn);
     }
 
 }

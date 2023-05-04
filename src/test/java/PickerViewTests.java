@@ -4,15 +4,24 @@ import PageObjects.PickerView;
 
 public class PickerViewTests extends AppiumConfiguration {
 
-    @Test
+    @Test(groups = {"Smoke"})
     public void clickPickerView() {
         try {
             PickerView pickerView = homepage.colorMixer();
             pickerView.assertColorKeys();
-            pickerView.colorMixer();
             pickerView.navigateBack();
         } catch (Exception e) {
-            e.printStackTrace();
+            if (e instanceof Throwable) {
+                e.printStackTrace();
+            }
         }
+    }
+
+
+
+    @Test (groups = {"Smoke"})
+    public void setColor(){
+        PickerView pickerView = homepage.colorMixer();
+        pickerView.colorMixer();
     }
 }
