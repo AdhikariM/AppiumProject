@@ -9,6 +9,11 @@
     <listeners>
         <listener class-name="AppiumUtil.Listeners"></listener>
     </listeners>
+    <test verbose="2" preserve-order="true" name="Validate Homepage">
+        <classes>
+            <class name="Tests"></class>
+        </classes>
+    </test>
     <test verbose="2" preserve-order="true" name="Alert View Test">
         <classes>
             <class name="AlertViewsTests"></class>

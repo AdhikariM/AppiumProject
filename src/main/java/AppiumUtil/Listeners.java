@@ -3,7 +3,6 @@ package AppiumUtil;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.ios.IOSDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
@@ -41,7 +40,7 @@ public class Listeners extends SharedUtilities implements ITestListener {
             throw new RuntimeException(e);
         }
         try {
-            test.addScreenCaptureFromPath(getScreenshotPath(result.getMethod().getMethodName(), driver), result.getMethod().getMethodName());
+            test.addScreenCaptureFromPath(getScreenshotPath(result.getMethod().getMethodName()), result.getMethod().getMethodName());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -57,7 +56,7 @@ public class Listeners extends SharedUtilities implements ITestListener {
             throw new RuntimeException(e);
         }
         try {
-            test.addScreenCaptureFromPath(getScreenshotPath(result.getMethod().getMethodName(), driver), result.getMethod().getMethodName());
+            test.addScreenCaptureFromPath(getScreenshotPath(result.getMethod().getMethodName()), result.getMethod().getMethodName());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

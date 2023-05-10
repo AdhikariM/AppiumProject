@@ -1,14 +1,11 @@
-package org.PageObjects;
+package PageObjects;
 
 import AppiumUtil.SharedUtilities;
-import PageObjects.*;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 
@@ -21,9 +18,10 @@ public class Homepage extends SharedUtilities {
         super(driver);
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+        this.softAssert = new SoftAssert();
     }
 
-    @iOSXCUITFindBy(accessibility = "UIKitCatalog")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'UIKitCatalog' AND type == 'XCUIElementTypeNavigationBar'")
     private WebElement pageTitle;
     @iOSXCUITFindBy(accessibility = "Activity Indicators")
     private WebElement activityI;
@@ -67,7 +65,7 @@ public class Homepage extends SharedUtilities {
     private WebElement segmentedCVC;
     @iOSXCUITFindBy(accessibility = "Sliders")
     private WebElement sliders;
-    @iOSXCUITFindBy(accessibility = "SlaccessibilityerViewController")
+    @iOSXCUITFindBy(accessibility = "SliderViewController")
     private WebElement sliderVC;
     @iOSXCUITFindBy(accessibility = "Stack Views")
     private WebElement stackViews;
@@ -125,6 +123,7 @@ public class Homepage extends SharedUtilities {
 
     public void verifyHomePage() {
 
+        System.out.println("Page title is " + pageTitle.getText());
         softAssert.assertEquals(pageTitle.getText(), "UIKitCatalog");
         softAssert.assertEquals(activityI.getText(), "Activity Indicators");
         softAssert.assertEquals(activityIVC.getText(), "ActivityIndicatorViewController");
@@ -140,7 +139,7 @@ public class Homepage extends SharedUtilities {
         softAssert.assertEquals(pageCVC.getText(), "PageControlViewController");
         softAssert.assertEquals(pickerView.getText(), "Picker View");
         softAssert.assertEquals(pickerVC.getText(), "PickerViewController");
-        softAssert.assertEquals(progressViews.getText(), "Progress Vi");
+        softAssert.assertEquals(progressViews.getText(), "Progress Views");
         softAssert.assertAll();
 
 

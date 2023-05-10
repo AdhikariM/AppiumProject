@@ -1,11 +1,7 @@
 import AppiumUtil.AppiumConfiguration;
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.reporter.ExtentReporter;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 import PageObjects.AlertViews;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class AlertViewsTests extends AppiumConfiguration {
 

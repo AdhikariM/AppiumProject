@@ -1,6 +1,5 @@
 package PageObjects;
 
-import AppiumUtil.AppiumConfiguration;
 import AppiumUtil.SharedUtilities;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
