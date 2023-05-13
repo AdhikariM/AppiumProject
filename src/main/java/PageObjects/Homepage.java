@@ -21,7 +21,7 @@ public class Homepage extends SharedUtilities {
         this.softAssert = new SoftAssert();
     }
 
-    @iOSXCUITFindBy(iOSNsPredicate = "name == 'UIKitCatalog' AND type == 'XCUIElementTypeNavigationBar'")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`value == 'UIKitCatalog'`]")
     private WebElement pageTitle;
     @iOSXCUITFindBy(accessibility = "Activity Indicators")
     private WebElement activityI;
@@ -123,8 +123,7 @@ public class Homepage extends SharedUtilities {
 
     public void verifyHomePage() {
 
-        System.out.println("Page title is " + pageTitle.getText());
-        //softAssert.assertEquals(pageTitle.getText(), "UIKitCatalog");
+        softAssert.assertEquals(pageTitle.getText(), "UIKitCatalog");
         softAssert.assertEquals(activityI.getText(), "Activity Indicators");
         softAssert.assertEquals(activityIVC.getText(), "ActivityIndicatorViewController");
         softAssert.assertEquals(alertViews.getText(), "Alert Views");
