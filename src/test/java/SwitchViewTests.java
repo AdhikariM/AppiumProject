@@ -13,7 +13,7 @@ public class SwitchViewTests extends AppiumConfiguration {
         switchView.verifyPage();
     }
 
-    @Test
+    @Test(dependsOnMethods = {"clickSwitchesView"})
     public void clickSwitch(){
         switchView.toggleSwitch();
     }
