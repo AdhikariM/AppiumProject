@@ -8,4 +8,10 @@ public class SliderTests extends AppiumConfiguration {
         SliderView sliderView = homepage.clickSliderView();
         sliderView.setSlider();
     }
+
+    @Test
+    public void verify(){
+        SliderView sliderView = homepage.clickSliderView();
+        sliderView.verifyValues();
+    }
 }
