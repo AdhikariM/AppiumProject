@@ -39,13 +39,17 @@ public class Listeners extends SharedUtilities implements ITestListener {
         } catch (NoSuchFieldException | IllegalAccessException e) {
             throw new RuntimeException(e);
         }
+        String screenshotPath = null;
         try {
-            test.addScreenCaptureFromPath(getScreenshotPath(result.getMethod().getMethodName()), result.getMethod().getMethodName());
+            screenshotPath = getScreenshotPath(result.getMethod().getMethodName());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
+        if (screenshotPath != null && !screenshotPath.isEmpty()) {
+            test.addScreenCaptureFromPath(screenshotPath, result.getMethod().getMethodName());
+        }
     }
+
 
     @Override
     public void onTestSkipped(ITestResult result) {

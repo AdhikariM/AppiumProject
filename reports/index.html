@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">Automation Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">May 9, 2023 09:43:44 PM</span></a>
+<a href="#"><span class="badge badge-primary">May 12, 2023 07:51:54 PM</span></a>
 </li>
 </ul>
 </div>
@@ -71,6 +71,7 @@
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
 <a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
@@ -86,7 +87,7 @@
           <div class="test-detail">
             <p class="name">verifyHome</p>
             <p class="text-sm">
-              <span>9:43:55 PM</span> / <span>00:00:13:705</span>
+              <span>7:52:18 PM</span> / <span>00:00:11:185</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -95,9 +96,9 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-fail">verifyHome</h5>
-<span class='badge badge-success'>05.09.2023 9:43:55 PM</span>
-<span class='badge badge-danger'>05.09.2023 9:44:09 PM</span>
-<span class='badge badge-default'>00:00:13:705</span>
+<span class='badge badge-success'>05.12.2023 7:52:18 PM</span>
+<span class='badge badge-danger'>05.12.2023 7:52:29 PM</span>
+<span class='badge badge-default'>00:00:11:185</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -109,7 +110,7 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log fail-bg">Fail</span></td>
-        <td>9:44:09 PM</td>
+        <td>7:52:29 PM</td>
         <td>
           <textarea readonly class="code-block">java.lang.AssertionError: The following asserts failed:
 	expected [UIKitCatalog] but found []
@@ -148,39 +149,124 @@
           
         </td>
       </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="2"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">clickStackView</p>
+            <p class="text-sm">
+              <span>7:52:38 PM</span> / <span>00:00:04:270</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">clickStackView</h5>
+<span class='badge badge-success'>05.12.2023 7:52:38 PM</span>
+<span class='badge badge-danger'>05.12.2023 7:52:42 PM</span>
+<span class='badge badge-default'>00:00:04:270</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
       <tr class="event-row">
-        <td><span class="badge log fail-bg">Fail</span></td>
-        <td>9:44:09 PM</td>
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>7:52:42 PM</td>
         <td>
-          <textarea readonly class="code-block">java.lang.NullPointerException
-	at AppiumUtil.SharedUtilities.getScreenshotPath(SharedUtilities.java:33)
-	at AppiumUtil.Listeners.onTestFailure(Listeners.java:44)
-	at org.testng.internal.TestListenerHelper.runTestListeners(TestListenerHelper.java:99)
-	at org.testng.internal.invokers.TestInvoker.runTestResultListener(TestInvoker.java:275)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:728)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:219)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:923)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:192)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1259)
-	at org.testng.TestRunner.privateRun(TestRunner.java:808)
-	at org.testng.TestRunner.run(TestRunner.java:603)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:326)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
-	at org.testng.TestNG.runSuites(TestNG.java:1092)
-	at org.testng.TestNG.run(TestNG.java:1060)
-	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
-	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
-</textarea>
-          
+          Test passed
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="3"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">clickPickerView</p>
+            <p class="text-sm">
+              <span>7:52:50 PM</span> / <span>00:00:02:587</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">clickPickerView</h5>
+<span class='badge badge-success'>05.12.2023 7:52:50 PM</span>
+<span class='badge badge-danger'>05.12.2023 7:52:52 PM</span>
+<span class='badge badge-default'>00:00:02:587</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=3</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>7:52:52 PM</td>
+        <td>
+          Test passed
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="4"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">setColor</p>
+            <p class="text-sm">
+              <span>7:52:52 PM</span> / <span>00:00:11:987</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">setColor</h5>
+<span class='badge badge-success'>05.12.2023 7:52:52 PM</span>
+<span class='badge badge-danger'>05.12.2023 7:53:04 PM</span>
+<span class='badge badge-default'>00:00:11:987</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=4</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>7:53:04 PM</td>
+        <td>
+          Test passed
         </td>
       </tr>
   </tbody>
@@ -201,7 +287,7 @@
 <div class="test-list">
 <div class="test-list-tools">
 <ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
-<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">2</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
 </div>
 <div class="test-list-wrapper scrollable">
 <ul class="test-list-item">
@@ -229,40 +315,7 @@
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>21:43:55 PM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='1'>verifyHome</a>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-<li class="test-item">
-<div class="test-detail">
-<span class="meta">
-<span class='badge log badge-danger'>1</span>
-</span>
-<p class="name">java.lang.NullPointerException</p>
-<p class="duration text-sm">1 tests</p>
-</div>
-<div class="test-contents d-none">
-<div class="info">
-<h4>java.lang.NullPointerException</h4>
-<span status="fail" class='badge log badge-danger'>1 failed</span>
-</div>
-<table class='table table-sm mt-4'>
-<thead>
-<tr>
-<th class="status-col">Status</th>
-<th class="timestamp-col">Timestamp</th>
-<th>TestName</th>
-</tr>
-</thead>
-<tbody>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>21:43:55 PM</td>
+<td>19:52:18 PM</td>
 <td>
 <a href="#" class="linked" test-id='1' id='1'>verifyHome</a>
 </td>
@@ -284,19 +337,19 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>May 9, 2023 09:43:44 PM</h3>
+<h3>May 12, 2023 07:51:54 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>May 9, 2023 09:44:09 PM</h3>
+<h3>May 12, 2023 07:53:04 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Tests Passed</p>
-<h3>0</h3>
+<h3>3</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -318,12 +371,12 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='0%'>
-<b>0</b> tests passed
+<div><small data-tooltip='75%'>
+<b>3</b> tests passed
 </small>
 </div>
 <div>
-<small data-tooltip='100%'><b>1</b> tests failed,
+<small data-tooltip='25%'><b>1</b> tests failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -341,9 +394,9 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='0%'><b>0</b> events passed</small></div>
+<div><small data-tooltip='75%'><b>3</b> events passed</small></div>
 <div>
-<small data-tooltip='100%'><b>2</b> events failed,
+<small data-tooltip='25%'><b>1</b> events failed,
 <b data-tooltip='%'>0</b> others
 </small>
 </div>
@@ -360,7 +413,7 @@
 </div></div>
 <script>
 var timeline = {
-"verifyHome":13.705
+"verifyHome":11.185,"clickStackView":4.27,"clickPickerView":2.587,"setColor":11.987
 };
 </script>
 <div class="row">
@@ -369,7 +422,7 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 0,
+passParent: 3,
 failParent: 1,
 warningParent: 0,
 skipParent: 0,
@@ -386,8 +439,8 @@ warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
-passEvents: 0,
-failEvents: 2,
+passEvents: 3,
+failEvents: 1,
 warningEvents: 0,
 skipEvents: 0,
 infoEvents: 0
