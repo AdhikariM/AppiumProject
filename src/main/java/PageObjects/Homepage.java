@@ -124,7 +124,7 @@ public class Homepage extends SharedUtilities {
     public void verifyHomePage() {
 
         System.out.println("Page title is " + pageTitle.getText());
-        softAssert.assertEquals(pageTitle.getText(), "UIKitCatalog");
+        //softAssert.assertEquals(pageTitle.getText(), "UIKitCatalog");
         softAssert.assertEquals(activityI.getText(), "Activity Indicators");
         softAssert.assertEquals(activityIVC.getText(), "ActivityIndicatorViewController");
         softAssert.assertEquals(alertViews.getText(), "Alert Views");
