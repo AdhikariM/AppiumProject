@@ -34,19 +34,22 @@ public class Listeners extends SharedUtilities implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         test.fail(result.getThrowable());
+
         try {
-            driver = (IOSDriver) result.getTestClass().getRealClass().getField("driver").get(result.getInstance());
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            throw new RuntimeException(e);
+            driver = (IOSDriver) result.getTestClass()
+                    .getRealClass()
+                    .getField("driver")
+                    .get(result.getInstance());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        String screenshotPath = null;
+
         try {
-            screenshotPath = getScreenshotPath(result.getMethod().getMethodName());
+            String methodName = result.getMethod().getMethodName();
+            String screenshotPath = captureScreenshot(methodName); // Using captureScreenshot from SharedUtilities
+            test.addScreenCaptureFromPath(screenshotPath, methodName);
         } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        if (screenshotPath != null && !screenshotPath.isEmpty()) {
-            test.addScreenCaptureFromPath(screenshotPath, result.getMethod().getMethodName());
+            e.printStackTrace();
         }
     }
 
@@ -54,13 +57,17 @@ public class Listeners extends SharedUtilities implements ITestListener {
     @Override
     public void onTestSkipped(ITestResult result) {
         test.skip(result.getThrowable());
+
         try {
             driver = (IOSDriver) result.getTestClass().getRealClass().getField("driver").get(result.getInstance());
         } catch (NoSuchFieldException | IllegalAccessException e) {
             throw new RuntimeException(e);
         }
+
         try {
-            test.addScreenCaptureFromPath(getScreenshotPath(result.getMethod().getMethodName()), result.getMethod().getMethodName());
+            String methodName = result.getMethod().getMethodName();
+            String screenshotPath = captureScreenshot(methodName); // Using captureScreenshot from SharedUtilities
+            test.addScreenCaptureFromPath(screenshotPath, methodName);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

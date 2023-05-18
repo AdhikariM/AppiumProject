@@ -4,9 +4,12 @@ import AppiumUtil.SharedUtilities;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
+
+import java.util.List;
 
 public class PickerView extends SharedUtilities {
 
@@ -38,6 +41,11 @@ public class PickerView extends SharedUtilities {
         softAssert.assertEquals(redColorComponent.getAttribute("value"), 65);
         softAssert.assertEquals(greenColorComponent.getAttribute("value"), 205);
         softAssert.assertEquals(blueColorComponent.getAttribute("value"), 120);
+    }
+
+    public int getNumberOfPickerViewElements() {
+        List<WebElement> elements = greenColorComponent.findElements(By.xpath("//XCUIElementTypePickerWheel[@value]"));
+        return elements.size();
     }
 
     public void navigateBack() {
