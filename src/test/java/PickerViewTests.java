@@ -29,7 +29,7 @@ public class PickerViewTests extends AppiumConfiguration {
     public void printNumberOfElementsInPickerView() {
         // Initialize the page object
         PickerView pickerView = homepage.colorMixer();
-
+        //pickerView.getNumberOfPickerViewElements();
 //        // Wait for the color mixer to be visible
 //        WebDriverWait wait = new WebDriverWait(driver, 10);
 //        wait.until(ExpectedConditions.visibilityOf(pickerView.getColorMixer()));
