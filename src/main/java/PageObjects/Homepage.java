@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
 
+import java.awt.*;
+
 
 public class Homepage extends SharedUtilities {
 
@@ -79,7 +81,7 @@ public class Homepage extends SharedUtilities {
     private WebElement switches;
     @iOSXCUITFindBy(accessibility = "SwitchViewController")
     private WebElement switchVC;
-    @iOSXCUITFindBy(accessibility = "Text Fields")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeAny[`label == 'Text Fields'`]")
     private WebElement textFields;
     @iOSXCUITFindBy(accessibility = "TextFieldViewController")
     private WebElement textFVC;
@@ -120,6 +122,11 @@ public class Homepage extends SharedUtilities {
         clickOnField(pickerView);
         return new PickerView(driver);
     }
+    public TextFieldsPage navigateToTextFieldsPage() {
+        clickOnField(textFields);
+        return new TextFieldsPage(driver);
+    }
+
 
     public void verifyHomePage() {
 
